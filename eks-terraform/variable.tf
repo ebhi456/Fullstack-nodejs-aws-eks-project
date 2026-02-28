@@ -7,13 +7,13 @@ variable "node_group_name" {
 variable "master_role_name_prefix" {
   description = "Prefix for the EKS master IAM role (random suffix appended by AWS)"
   type        = string
-  default     = "yaswanth-eks-master-"
+  default     = "ebinejar-eks-master-"
 }
 
 variable "worker_role_name_prefix" {
   description = "Prefix for the EKS worker IAM role (random suffix appended by AWS)"
   type        = string
-  default     = "yaswanth-eks-worker-"
+  default     = "ebinejar-eks-worker-"
 }
 
 variable "worker_instance_profile_prefix" {
