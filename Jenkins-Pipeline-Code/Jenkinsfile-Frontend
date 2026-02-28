@@ -34,9 +34,9 @@ pipeline {
                 script {
                     // Shell script to authenticate with AWS ECR and push Docker image
                     sh '''
-                    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 069416262331.dkr.ecr.us-east-1.amazonaws.com
-                    docker tag frontend:latest 069416262331.dkr.ecr.us-east-1.amazonaws.com/frontend:${BUILD_NUMBER}
-                    docker push 069416262331.dkr.ecr.us-east-1.amazonaws.com/frontend:${BUILD_NUMBER}
+                    aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 965224989055.dkr.ecr.us-east-1.amazonaws.com
+                    docker tag frontend:latest 965224989055.dkr.ecr.us-east-1.amazonaws.com/frontend:${BUILD_NUMBER}
+                    docker push 965224989055.dkr.ecr.us-east-1.amazonaws.com/frontend:${BUILD_NUMBER}
                     '''
                     // Steps:
                     // 1. Log in to AWS ECR using credentials from `aws ecr get-login-password`
@@ -50,7 +50,7 @@ pipeline {
             environment {
                 // Define environment variables for use in this stage
                 GIT_REPO_NAME = "Fullstack-nodejs-aws-eks-project"
-                GIT_USER_NAME = "arumullayaswanth"
+                GIT_USER_NAME = "ebhi456"
             }
             steps {
                 // Move into the 'kubernetes-files' directory
@@ -59,10 +59,10 @@ pipeline {
                     withCredentials([string(credentialsId: 'my-git-pattoken', variable: 'git_token')]) {
                         sh '''
                             # Set Git user email for committing
-                            git config user.email "Yaswanth.arumulla@gmail.com"
+                            git config user.email "ebinejar456@gmail.com"
                         
                             # Set Git user name for committing
-                            git config user.name "arumullayaswanth"
+                            git config user.name "Ebinejar Nagubamu"
                         
                             # Capture Jenkins build number into a shell variable
                             BUILD_NUMBER=${BUILD_NUMBER}
@@ -71,7 +71,7 @@ pipeline {
                             echo $BUILD_NUMBER
                         
                             # Replace the image line in the YAML with the new image tag using sed
-                            sed -i "s#image:.*#image: 069416262331.dkr.ecr.us-east-1.amazonaws.com/frontend:$BUILD_NUMBER#g" frontend-deploy-service.yaml
+                            sed -i "s#image:.*#image: 965224989055.dkr.ecr.us-east-1.amazonaws.com/frontend:$BUILD_NUMBER#g" frontend-deploy-service.yaml
                         
                             # Stage the modified deployment file for commit
                             git add .
