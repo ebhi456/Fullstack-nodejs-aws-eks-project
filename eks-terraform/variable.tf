@@ -19,5 +19,5 @@ variable "worker_role_name_prefix" {
 variable "worker_instance_profile_prefix" {
   description = "Prefix for the worker IAM instance profile (random suffix appended by AWS)"
   type        = string
-  default     = "yaswanth-eks-worker-profile-"
+  default     = "ebinejar-eks-worker-profile-"
 }
